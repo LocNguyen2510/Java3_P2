@@ -3,6 +3,8 @@ package model;
 import java.sql.Date;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
@@ -25,6 +27,8 @@ public class Cat {
 		this.sex = sex;
 	}
 
+	@Id // khóa chính
+	@GeneratedValue // tự động tăng dần auto number
 	public Integer getId() {
 		return id;
 	}
