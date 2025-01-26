@@ -1,7 +1,7 @@
 package util;
 
 import org.hibernate.SessionFactory;
-
+import org.
 public class HibernateUtil {
 	private static final SessionFactory sessionFactory = buildSessionFactory();
 
