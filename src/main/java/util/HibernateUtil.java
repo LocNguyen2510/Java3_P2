@@ -1,15 +1,18 @@
 package util;
 
 import org.hibernate.SessionFactory;
-import org.
+import org.hibernate.cfg.Configuration;
+
 public class HibernateUtil {
 	private static final SessionFactory sessionFactory = buildSessionFactory();
 
 	private static SessionFactory buildSessionFactory() {
 		try {
-			return new Configuration().configue().buildSessionFactory();
+			return new Configuration().configure().buildSessionFactory();
 		} catch (Exception e) {
 			// TODO: handle exception
+			System.out.println("bi loi");
+			return null;
 		}
 	}
 }
