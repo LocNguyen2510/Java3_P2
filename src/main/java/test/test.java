@@ -1,10 +1,16 @@
 package test;
 
-import org.hibernate.Hibernate;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
-import com.mysql.cj.xdevapi.SessionFactory;
+import util.HibernateUtil;
 
 public class test {
 	public static void main(String[] args) {
-Session session = Hibernate	}
+		try {
+			SessionFactory sessionFactory = HibernateUtil.getSessionFactory()
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
 }
