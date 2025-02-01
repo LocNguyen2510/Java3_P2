@@ -2,33 +2,30 @@ package model;
 
 import java.sql.Date;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Entity
-@Table
 public class Cat {
 	private Integer id;
 	private String name;
 	private Date dateOfBirth;
-	private boolean sex;
+	private Boolean sex;
 
-//bắt buộc phải có 1 constructor rỗng
+	// Bat buoc mot constructor rong
 	public Cat() {
 	}
 
-	public Cat(Integer id, String name, Date dateOfBirth, boolean sex) {
-		super();
+	public Cat(Integer id, String name, Date dateOfBirth, Boolean sex) {
 		this.id = id;
 		this.name = name;
 		this.dateOfBirth = dateOfBirth;
 		this.sex = sex;
 	}
 
-	@Id // khóa chính
-	@GeneratedValue // tự động tăng dần auto number
+	@Id // Khoa chinh
+	@GeneratedValue // Tu dong tang, auto number
 	public Integer getId() {
 		return id;
 	}
@@ -53,11 +50,11 @@ public class Cat {
 		this.dateOfBirth = dateOfBirth;
 	}
 
-	public boolean isSex() {
+	public Boolean getSex() {
 		return sex;
 	}
 
-	public void setSex(boolean sex) {
+	public void setSex(Boolean sex) {
 		this.sex = sex;
 	}
 
