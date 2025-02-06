@@ -58,4 +58,9 @@ public class Cat {
 		this.sex = sex;
 	}
 
+	@Override
+	public String toString() {
+		return "Cat [id=" + id + ", name=" + name + ", dateOfBirth=" + dateOfBirth + ", sex=" + sex + "]";
+	}
+
 }
