@@ -39,8 +39,26 @@ public class CatDAO implements DAOInterface<Cat> {
 
 	@Override
 	public Cat selectById(Cat t) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Cat> result = new ArrayList<>();
+		try {
+			SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+			if (sessionFactory != null) {
+				Session session = sessionFactory.openSession();
+				Transaction tr = session.beginTransaction();
+				// thực thi câu lệnh HQL
+				String hql = "from Cat c where c.id:=id";
+				Query query = session.createQuery(hql);
+				list = query.getResultList();
+				query.setParameter("id", t.getId())
+				tr.commit();
+				session.close();
+			} else {
+				return null;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
 
 	@Override
