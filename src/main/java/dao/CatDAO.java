@@ -46,7 +46,7 @@ public class CatDAO implements DAOInterface<Cat> {
 				Session session = sessionFactory.openSession();
 				Transaction tr = session.beginTransaction();
 				// thực thi câu lệnh HQL
-				String hql = "from Cat c where c.id:=id";
+				String hql = "from Cat c where c.id=id";
 				Query query = session.createQuery(hql);
 				list = query.getResultList();
 				query.setParameter("id", t.getId());
