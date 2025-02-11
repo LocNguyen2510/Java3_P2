@@ -65,6 +65,31 @@ public class CatDAO implements DAOInterface<Cat> {
 		}
 	}
 
+//	public Cat selectById(Cat t) {
+//		if (t == null || t.getId() == null) {
+//			return null; // Tránh lỗi NullPointerException
+//		}
+//
+//		Cat cat = null;
+//		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+//			Transaction tr = session.beginTransaction();
+//
+//			// Sửa lại câu lệnh HQL đúng cú pháp
+//			String hql = "from Cat c where c.id = :id";
+//			Query query = session.createQuery(hql, Cat.class);
+//			query.setParameter("id", t.getId());
+//
+//			cat = (Cat) ((org.hibernate.query.Query) query).uniqueResult(); // Trả về một đối tượng duy nhất thay vì
+//																			// danh sách
+//
+//			tr.commit();
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//
+//		return cat;
+//	}
+
 	@Override
 	public boolean insert(Cat t) {
 		// TODO Auto-generated method stub

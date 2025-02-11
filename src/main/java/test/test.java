@@ -11,9 +11,6 @@ public class test {
 //			System.out.println(cat);
 //		}
 		Cat c = new Cat();
-		c.setId(1);
-		Cat c1 = cat_Dao.selectById(c);
-		System.out.println(c1);
 		c.setId(2);
 		Cat c2 = cat_Dao.selectById(c);
 		System.out.println(c2);
