@@ -1,5 +1,7 @@
 package test;
 
+import java.sql.Date;
+
 import dao.CatDAO;
 import model.Cat;
 
@@ -10,10 +12,16 @@ public class test {
 //		for (Cat cat : list) {
 //			System.out.println(cat);
 //		}
-		Cat c = new Cat();
-		c.setId(2);
-		Cat c2 = cat_Dao.selectById(c);
-		System.out.println(c2);
+//		Cat c = new Cat();
+//		c.setId(2);
+//		Cat c2 = cat_Dao.selectById(c);
+//		System.out.println(c2);
+//	}
 
+		// Test insert
+		Cat c3 = new Cat("Jerry 2", new Date(System.currentTimeMillis()), true);
+		c3.setId(3);
+//		cat_Dao.insert(c3);
+		cat_Dao.delete(c3);
 	}
 }
