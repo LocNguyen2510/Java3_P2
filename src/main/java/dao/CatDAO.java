@@ -92,30 +92,25 @@ public class CatDAO implements DAOInterface<Cat> {
 
 	@Override
 	public boolean insert(Cat t) {
-		List<Cat> list = new ArrayList<>();
+
 		try {
 			SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 			if (sessionFactory != null) {
 				Session session = sessionFactory.openSession();
 				Transaction tr = session.beginTransaction();
 				// thực thi câu lệnh HQL
-				String hql = "from Cat c where c.id=id";
-				Query query = session.createQuery(hql);
-				list = query.getResultList();
-				query.setParameter("id", t.getId());
+				// (save) chỉ lưu khi chưa tồn tại
+				// session.save(t);
+				// (saveOrUpdate) thêm mới khi chưa tồn tại hoặc cập nhật nếu đã tồn tại
+				session.saveOrUpdate(t);
 				tr.commit();
 				session.close();
-			} else {
-				return null;
+				return true;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		if (list.size() > 0) {
-			return list.get(0);
-		} else {
-			return null;
-		}
+		return false;
 	}
 
 	@Override
