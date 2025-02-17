@@ -39,7 +39,7 @@ public class CatDAO implements DAOInterface<Cat> {
 
 	@Override
 	public Cat selectById(Cat t) {
-		Cat result;
+		Cat result = null;
 		try {
 			SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 			if (sessionFactory != null) {
@@ -48,8 +48,6 @@ public class CatDAO implements DAOInterface<Cat> {
 				result = session.get(Cat.class, 1);
 				tr.commit();
 				session.close();
-			} else {
-				return null;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -89,6 +87,7 @@ public class CatDAO implements DAOInterface<Cat> {
 				Session session = sessionFactory.openSession();
 				Transaction tr = session.beginTransaction();
 				// thực thi câu lệnh HQL
+//				persist(): Sẽ không trả về id, không báo lỗi khi gặp lỗi
 				// (save) chỉ lưu khi chưa tồn tại
 				// session.save(t);
 				// (saveOrUpdate) thêm mới khi chưa tồn tại hoặc cập nhật nếu đã tồn tại
