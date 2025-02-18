@@ -39,20 +39,22 @@ public class CatDAO implements DAOInterface<Cat> {
 
 	@Override
 	public Cat selectById(Cat t) {
-		Cat result = null;
+
 		try {
 			SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 			if (sessionFactory != null) {
 				Session session = sessionFactory.openSession();
 				Transaction tr = session.beginTransaction();
-				result = session.get(Cat.class, 1);
+				Cat result = session.get(Cat.class, 1);
 				tr.commit();
 				session.close();
+				return result;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return result;
+
+		return null;
 	}
 
 //	public Cat selectById(Cat t) {
