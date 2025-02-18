@@ -1,7 +1,6 @@
 package test;
 
 import dao.CatDAO;
-import model.Cat;
 
 public class test {
 	public static void main(String[] args) {
@@ -21,9 +20,9 @@ public class test {
 //		c3.setId(3);
 ////		cat_Dao.insert(c3);
 //		cat_Dao.delete(c3);
-		Cat cat1 = new Cat();
-		cat1.setId(1);
-		cat_Dao.selectById(cat1);
-		System.out.println(cat1);
+//		Cat cat1 = new Cat();
+//		cat1.setId(1);
+//		cat_Dao.selectById(cat1);
+//		System.out.println(cat1);
 	}
 }
