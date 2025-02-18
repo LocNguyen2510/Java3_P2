@@ -23,7 +23,7 @@ public class test {
 //		cat_Dao.delete(c3);
 		Cat cat1 = new Cat();
 		cat1.setId(1);
-//		cat_Dao.selectById(cat1);
+		cat_Dao.selectById(cat1);
 		System.out.println(cat1);
 	}
 }
