@@ -28,6 +28,14 @@ public class Person {
 		super();
 	}
 
+	public Person(String name, Date dateOfBirth, Person spouse) {
+		super();
+
+		this.name = name;
+		this.dateOfBirth = dateOfBirth;
+		this.spouse = spouse;
+	}
+
 	public Person(long id, String name, Date dateOfBirth, Person spouse) {
 		super();
 		this.id = id;
