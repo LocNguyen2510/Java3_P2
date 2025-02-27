@@ -39,7 +39,23 @@ public class PersonDAO implements DAOInterface<Person> {
 
 	@Override
 	public Person selectById(Person t) {
-		// TODO Auto-generated method stub
+		try {
+			SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+			if (sessionFactory != null) {
+				Session session = sessionFactory.openSession();
+				Transaction tr = session.beginTransaction();
+
+				Person result = session.get(Person.class, 1);
+				// find
+				// load
+
+				tr.commit();
+				session.close();
+				return result;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 
