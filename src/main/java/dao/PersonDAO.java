@@ -48,7 +48,6 @@ public class PersonDAO implements DAOInterface<Person> {
 				Person result = session.get(Person.class, 1);
 				// find
 				// load
-
 				tr.commit();
 				session.close();
 				return result;
@@ -61,13 +60,43 @@ public class PersonDAO implements DAOInterface<Person> {
 
 	@Override
 	public boolean insert(Person t) {
-		// TODO Auto-generated method stub
+		try {
+			SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+			if (sessionFactory != null) {
+				Session session = sessionFactory.openSession();
+				Transaction tr = session.beginTransaction();
+
+				session.saveOrUpdate(t);
+				// find
+				// load
+				tr.commit();
+				session.close();
+				return true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return false;
 	}
 
 	@Override
 	public boolean update(Person t) {
-		// TODO Auto-generated method stub
+		try {
+			SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+			if (sessionFactory != null) {
+				Session session = sessionFactory.openSession();
+				Transaction tr = session.beginTransaction();
+
+				session.saveOrUpdate(t);
+				// find
+				// load
+				tr.commit();
+				session.close();
+				return true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return false;
 	}
 
