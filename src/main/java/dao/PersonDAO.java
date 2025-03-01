@@ -102,7 +102,22 @@ public class PersonDAO implements DAOInterface<Person> {
 
 	@Override
 	public boolean delete(Person t) {
-		// TODO Auto-generated method stub
+		try {
+			SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+			if (sessionFactory != null) {
+				Session session = sessionFactory.openSession();
+				Transaction tr = session.beginTransaction();
+
+				session.delete(t);
+				// find
+				// load
+				tr.commit();
+				session.close();
+				return true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return false;
 	}
 
