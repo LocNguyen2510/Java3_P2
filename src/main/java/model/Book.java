@@ -7,20 +7,20 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Book {
+
 	@Id
 	private String book_id;
 	private String title;
 	private double price;
+
 	@ManyToOne
 	@JoinColumn(name = "author_id")
 	private Author author;
 
 	public Book() {
-		super();
 	}
 
 	public Book(String book_id, String title, double price, Author author) {
-		super();
 		this.book_id = book_id;
 		this.title = title;
 		this.price = price;

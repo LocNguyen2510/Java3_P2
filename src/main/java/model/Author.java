@@ -2,22 +2,23 @@ package model;
 
 import java.sql.Date;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
 
+@Entity
 public class Author {
+
 	@Id
 	private String author_id;
-	private String author_name;
+	private String name;
 	private Date dateOfBirth;
 
 	public Author() {
-		super();
 	}
 
-	public Author(String author_id, String author_name, Date dateOfBirth) {
-		super();
+	public Author(String author_id, String name, Date dateOfBirth) {
 		this.author_id = author_id;
-		this.author_name = author_name;
+		this.name = name;
 		this.dateOfBirth = dateOfBirth;
 	}
 
@@ -29,12 +30,12 @@ public class Author {
 		this.author_id = author_id;
 	}
 
-	public String getAuthor_name() {
-		return author_name;
+	public String getName() {
+		return name;
 	}
 
-	public void setAuthor_name(String author_name) {
-		this.author_name = author_name;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public Date getDateOfBirth() {
@@ -44,4 +45,5 @@ public class Author {
 	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
+
 }
