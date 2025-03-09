@@ -27,9 +27,9 @@ public class test {
 //			session.saveOrUpdate(b2);
 //			session.saveOrUpdate(b3);
 			Author author_2 = new Author("002", "Napoleon Hill", new Date(System.currentTimeMillis()));
-			Book b4 = new Book("B01", "Bí Quyết Làm Giàu Của Napolenon Hill", 64000, author_2);
-			Book b5 = new Book("B02", "Sói Già Phố Wall", 120000, author_2);
-			Book b6 = new Book("B03", "Chiến Thắng Con Quỷ Trong Bạn", 99000, author_2);
+			Book b4 = new Book("B04", "Bí Quyết Làm Giàu Của Napolenon Hill", 64000, author_2);
+			Book b5 = new Book("B05", "Sói Già Phố Wall", 120000, author_2);
+			Book b6 = new Book("B06", "Chiến Thắng Con Quỷ Trong Bạn", 99000, author_2);
 
 			session.saveOrUpdate(author_2);
 			session.saveOrUpdate(b4);
