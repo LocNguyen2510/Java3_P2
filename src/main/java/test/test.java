@@ -1,12 +1,9 @@
 package test;
 
-import java.sql.Date;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-import model.Author;
 import model.Book;
 import util.HibernateUtil;
 
@@ -26,16 +23,18 @@ public class test {
 //			session.saveOrUpdate(b1);
 //			session.saveOrUpdate(b2);
 //			session.saveOrUpdate(b3);
-			Author author_2 = new Author("002", "Napoleon Hill", new Date(System.currentTimeMillis()));
-			Book b4 = new Book("B04", "Bí Quyết Làm Giàu Của Napolenon Hill", 64000, author_2);
-			Book b5 = new Book("B05", "Sói Già Phố Wall", 120000, author_2);
-			Book b6 = new Book("B06", "Chiến Thắng Con Quỷ Trong Bạn", 99000, author_2);
+//			Author author_2 = new Author("002", "Napoleon Hill", new Date(System.currentTimeMillis()));
+//			Book b4 = new Book("B04", "Bí Quyết Làm Giàu Của Napolenon Hill", 64000, author_2);
+//			Book b5 = new Book("B05", "Sói Già Phố Wall", 120000, author_2);
+//			Book b6 = new Book("B06", "Chiến Thắng Con Quỷ Trong Bạn", 99000, author_2);
+//
+//			session.saveOrUpdate(author_2);
+//			session.saveOrUpdate(b4);
+//			session.saveOrUpdate(b5);
+//			session.saveOrUpdate(b6);
 
-			session.saveOrUpdate(author_2);
-			session.saveOrUpdate(b4);
-			session.saveOrUpdate(b5);
-			session.saveOrUpdate(b6);
-
+			Book b1 = session.find(Book.class, "B01");
+			System.out.println("Tác giả của cuốn sách " + b1.getTitle() + " là: " + b1.getAuthor().getName());
 			tr.commit();
 			session.close();
 		}
