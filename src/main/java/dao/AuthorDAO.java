@@ -39,7 +39,16 @@ public class AuthorDAO implements DAOInterface<Author> {
 
 	@Override
 	public Author selectById(Author t) {
-		// TODO Auto-generated method stub
+		try {
+			SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+			Session session = sessionFactory.openSession();
+			Transaction tr = session.beginTransaction();
+			Author result = session.get(Author.class, 1);
+			tr.commit();
+			session.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		return null;
 	}
 
