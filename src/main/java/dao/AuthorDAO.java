@@ -41,32 +41,82 @@ public class AuthorDAO implements DAOInterface<Author> {
 	public Author selectById(Author t) {
 		try {
 			SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-			Session session = sessionFactory.openSession();
-			Transaction tr = session.beginTransaction();
-			Author result = session.get(Author.class, 1);
-			tr.commit();
-			session.close();
+			if (sessionFactory != null) {
+				Session session = sessionFactory.openSession();
+				Transaction tr = session.beginTransaction();
+				Author result = session.get(Author.class, 1);
+				tr.commit();
+				session.close();
+				return result;
+			} else {
+				return null;
+			}
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 		return null;
 	}
 
 	@Override
 	public boolean insert(Author t) {
-		// TODO Auto-generated method stub
+		try {
+			SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+			if (sessionFactory != null) {
+				Session session = sessionFactory.openSession();
+				Transaction tr = session.beginTransaction();
+				session.saveOrUpdate(t);
+				tr.commit();
+				session.close();
+				return true;
+			} else {
+				System.out.println("bi loi");
+				return false;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return false;
 	}
 
 	@Override
 	public boolean update(Author t) {
-		// TODO Auto-generated method stub
+		try {
+			SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+			if (sessionFactory != null) {
+				Session session = sessionFactory.openSession();
+				Transaction tr = session.beginTransaction();
+				session.saveOrUpdate(t);
+				tr.commit();
+				session.close();
+				return true;
+			} else {
+				System.out.println("bi loi");
+				return false;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return false;
 	}
 
 	@Override
 	public boolean delete(Author t) {
-		// TODO Auto-generated method stub
+		try {
+			SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+			if (sessionFactory != null) {
+				Session session = sessionFactory.openSession();
+				Transaction tr = session.beginTransaction();
+				session.delete(t);
+				tr.commit();
+				session.close();
+				return true;
+			} else {
+				System.out.println("bi loi");
+				return false;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return false;
 	}
 
