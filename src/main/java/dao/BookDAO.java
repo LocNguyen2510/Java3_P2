@@ -27,8 +27,7 @@ public class BookDAO implements DAOInterface<Book> {
 				list = query.getResultList();
 				tr.commit();
 				session.close();
-			} else {
-				return null;
+
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -38,25 +37,73 @@ public class BookDAO implements DAOInterface<Book> {
 
 	@Override
 	public Book selectById(Book t) {
-		// TODO Auto-generated method stub
+		try {
+			SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+			if (sessionFactory != null) {
+				Session session = sessionFactory.openSession();
+				Transaction tr = session.beginTransaction();
+				Book result = session.get(Book.class, 1);
+				tr.commit();
+				session.close();
+				return result;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 
 	@Override
 	public boolean insert(Book t) {
-		// TODO Auto-generated method stub
+		try {
+			SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+			if (sessionFactory != null) {
+				Session session = sessionFactory.openSession();
+				Transaction tr = session.beginTransaction();
+				session.saveOrUpdate(t);
+				tr.commit();
+				session.close();
+				return true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return false;
 	}
 
 	@Override
 	public boolean update(Book t) {
-		// TODO Auto-generated method stub
+		try {
+			SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+			if (sessionFactory != null) {
+				Session session = sessionFactory.openSession();
+				Transaction tr = session.beginTransaction();
+				session.saveOrUpdate(t);
+				tr.commit();
+				session.close();
+				return true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return false;
 	}
 
 	@Override
 	public boolean delete(Book t) {
-		// TODO Auto-generated method stub
+		try {
+			SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+			if (sessionFactory != null) {
+				Session session = sessionFactory.openSession();
+				Transaction tr = session.beginTransaction();
+				session.delete(t);
+				tr.commit();
+				session.close();
+				return true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return false;
 	}
 
