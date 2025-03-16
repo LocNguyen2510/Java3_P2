@@ -1,7 +1,10 @@
 package model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Customer {
@@ -9,6 +12,8 @@ public class Customer {
 	private String id;
 	private String name;
 	private String email;
+	@OneToMany(mappedBy = "customer")
+	private List<Order> order;
 
 	public Customer() {
 	}
@@ -18,6 +23,7 @@ public class Customer {
 		this.id = id;
 		this.name = name;
 		this.email = email;
+
 	}
 
 	public String getId() {
