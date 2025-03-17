@@ -6,7 +6,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Order {
+public class My_Order {
 	@Id
 	private String order_id;
 	private String address;
@@ -14,11 +14,11 @@ public class Order {
 	@JoinColumn(name = "customer_id")
 	private Customer customer;
 
-	public Order() {
+	public My_Order() {
 
 	}
 
-	public Order(String order_id, String address, Customer customer) {
+	public My_Order(String order_id, String address, Customer customer) {
 
 		this.order_id = order_id;
 		this.address = address;

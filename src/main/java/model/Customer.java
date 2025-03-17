@@ -13,13 +13,13 @@ public class Customer {
 	private String name;
 	private String email;
 	@OneToMany(mappedBy = "customer")
-	private List<Order> order;
+	private List<My_Order> order;
 
 	public Customer() {
 	}
 
 	public Customer(String id, String name, String email) {
-
+		super();
 		this.id = id;
 		this.name = name;
 		this.email = email;
@@ -48,5 +48,13 @@ public class Customer {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public List<My_Order> getOrder() {
+		return order;
+	}
+
+	public void setOrder(List<My_Order> order) {
+		this.order = order;
 	}
 }
