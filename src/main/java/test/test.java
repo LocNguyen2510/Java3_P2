@@ -1,9 +1,12 @@
 package test;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import model.Customer;
 import util.HibernateUtil;
 
 public class test {
@@ -45,6 +48,10 @@ public class test {
 //			session.saveOrUpdate(o7);
 //			session.saveOrUpdate(o8);
 			String hql = "FROM Customer c  WHERE size(c.order) > 0";
+			List<Customer> result = session.createQuery(hql).list();
+			for (Customer rs : result) {
+				System.out.println(rs);
+			}
 			tr.commit();
 			session.close();
 		}

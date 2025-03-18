@@ -48,4 +48,9 @@ public class My_Order {
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
+
+	@Override
+	public String toString() {
+		return "My_Order [order_id=" + order_id + ", address=" + address + ", customer=" + customer + "]";
+	}
 }

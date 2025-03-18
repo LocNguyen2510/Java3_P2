@@ -57,4 +57,9 @@ public class Customer {
 	public void setOrder(List<My_Order> order) {
 		this.order = order;
 	}
+
+	@Override
+	public String toString() {
+		return "Customer [id=" + id + ", name=" + name + ", email=" + email + ", order=" + order.size() + "]";
+	}
 }
