@@ -1,10 +1,16 @@
 package model;
 
 import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class CuocHop {
@@ -14,6 +20,10 @@ public class CuocHop {
 	private String tenCuocHop;
 	private String diaDiem;
 	private Date thoiGian;
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "cuochop_nhanvien", joinColumns = { @JoinColumn(name = "cuochop_id") }, inverseJoinColumns = {
+			@JoinColumn(name = "nhanvien_id") })
+	private Set<NhanVien> danhSachNhanVien = new HashSet<NhanVien>();
 
 	public CuocHop() {
 
