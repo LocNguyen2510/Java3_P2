@@ -2,6 +2,9 @@ package model;
 
 import java.sql.Date;
 
+import javax.persistence.Entity;
+
+@Entity
 public class GiaoVien extends ConNguoi {
 	private String monHocPhuTrach;
 
