@@ -16,10 +16,10 @@ public class test {
 		if (sessionFactory != null) {
 			Session session = sessionFactory.openSession();
 			Transaction tr = session.beginTransaction();
-			GiaoVien gv1 = new GiaoVien("GV1", "Nguyen Dinh Loc", new Date(2001, 12, 30), "Toan");
-			SinhVien sv1 = new SinhVien("SV1", "Nguyen Quang Minh", new Date(2005, 2, 12), 4.12);
-			session.save(gv1);
-			session.save(sv1);
+			GiaoVien gv1 = new GiaoVien("GV1", "Nguyen Dinh Loc", new Date(101, 3, 30), "Toan");
+			SinhVien sv1 = new SinhVien("SV1", "Nguyen Quang Minh", new Date(106, 5, 12), 4.12);
+			session.saveOrUpdate(gv1);
+			session.saveOrUpdate(sv1);
 			tr.commit();
 			session.close();
 		}
