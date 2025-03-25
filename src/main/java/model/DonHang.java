@@ -4,10 +4,20 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
 public class DonHang {
+	@Id
+	@GeneratedValue
 	private int id;
 	private String tenKhachHang;
 	private Date ngayMua;
+	@OneToMany(mappedBy = "donhang", cascade = CascadeType.ALL)
 	private List<ChiTietDonHang> danhSachChiTiet = new ArrayList<ChiTietDonHang>();
 
 	public DonHang() {

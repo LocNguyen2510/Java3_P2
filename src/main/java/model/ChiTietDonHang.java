@@ -1,11 +1,22 @@
 package model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class ChiTietDonHang {
+	@Id
+	@GeneratedValue
 	private int id;
 	private String tenSanPham;
 	private double soLuong;
 	private double giaBan;
 	private double thanhTien;
+	@ManyToOne
+	@JoinColumn(name = "donhang_id")
 	private DonHang donHang;
 
 	public ChiTietDonHang() {
