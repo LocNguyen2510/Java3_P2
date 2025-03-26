@@ -64,4 +64,8 @@ public class DonHang {
 		this.danhSachChiTiet = danhSachChiTiet;
 	}
 
+	public void addCTDH(ChiTietDonHang ctdh) {
+		this.danhSachChiTiet.add(ctdh);
+	}
+
 }
