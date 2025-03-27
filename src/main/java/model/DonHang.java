@@ -17,7 +17,7 @@ public class DonHang {
 	private int id;
 	private String tenKhachHang;
 	private Date ngayMua;
-	@OneToMany(mappedBy = "donHang", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "donHang", cascade = CascadeType.MERGE)
 	private List<ChiTietDonHang> danhSachChiTiet = new ArrayList<ChiTietDonHang>();
 
 	public DonHang() {
