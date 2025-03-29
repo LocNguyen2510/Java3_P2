@@ -1,6 +1,7 @@
 package model;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -15,7 +16,7 @@ public class ChiTietDonHang {
 	private double soLuong;
 	private double giaBan;
 	private double thanhTien;
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "donhang_id")
 	private DonHang donHang;
 
@@ -79,6 +80,12 @@ public class ChiTietDonHang {
 
 	public void setDonHang(DonHang donHang) {
 		this.donHang = donHang;
+	}
+
+	@Override
+	public String toString() {
+		return "ChiTietDonHang [id=" + id + ", tenSanPham=" + tenSanPham + ", soLuong=" + soLuong + ", giaBan=" + giaBan
+				+ ", thanhTien=" + thanhTien + ", donHang=" + donHang + "]";
 	}
 
 }

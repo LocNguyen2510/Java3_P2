@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -17,7 +18,7 @@ public class DonHang {
 	private int id;
 	private String tenKhachHang;
 	private Date ngayMua;
-	@OneToMany(mappedBy = "donHang", cascade = CascadeType.MERGE)
+	@OneToMany(mappedBy = "donHang", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<ChiTietDonHang> danhSachChiTiet = new ArrayList<ChiTietDonHang>();
 
 	public DonHang() {
@@ -66,6 +67,12 @@ public class DonHang {
 
 	public void addCTDH(ChiTietDonHang ctdh) {
 		this.danhSachChiTiet.add(ctdh);
+	}
+
+	@Override
+	public String toString() {
+		return "DonHang [id=" + id + ", tenKhachHang=" + tenKhachHang + ", ngayMua=" + ngayMua + ", danhSachChiTiet="
+				+ danhSachChiTiet + "]";
 	}
 
 }
